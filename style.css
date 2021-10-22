@@ -1,0 +1,87 @@
+*{
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html,body{
+  --black: hsl(240, 6%, 13%);
+  --grey: hsl(240, 9%, 89%);
+
+
+  height: 100%;
+  font-family: 'Roboto', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  
+}
+body{
+  display: grid;
+  place-items: center;
+
+  background: lightblue;
+}
+main{
+  background: url(assets/background.svg);
+  width: 375px;
+  height: 812px;
+}
+.container{
+  max-width: 250px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  color: var(--grey);
+
+}
+.avatar{
+  width: 10rem;
+  margin: 11.5rem auto 0;
+
+  /* recebeu esse position relative por causa do span com position absolute ----- ele será o limite para o absoluto que está logo abaixo*/
+  position: relative;
+}
+.avatar span{
+  position: absolute;
+  top: -15px;
+  /*teve que utilizar o z-index pois ao utilizar as propriedades do clip-path, a imagem do selo ficou atrás da imagem do cara*/
+  z-index: 1;
+}
+/*o sinal de > deixa a analise de imagem no primeiro nível*/
+.avatar > img{
+  width: 10rem;
+  height: 11.5rem;
+  /*propriedade para preencher todo o espaço dentro da caixa (deixar ele ajustado)*/
+  object-fit: cover;
+/*as propiedades eu pego do site https://bennettfeely.com/clippy/
+essa estrutura serve para cortar a imagem numa forma específica */
+  clip-path: polygon(50% 0, 100% 25%, 100% 66%, 50% 100%, 0 66%, 0 25%);
+}
+
+h1{
+  font-size: 1.5rem;
+  margin-top: 1.5rem;
+}
+a{
+  color: var(--grey);
+  text-decoration: none;
+  margin-top: 0.25rem;
+  display: flex;
+  gap: 0.75rem;
+  justify-content: center;
+  align-items: center;
+  
+}
+p{
+  margin-top: 2rem;
+}
+ul{
+  margin-top: 4rem;
+  list-style: none;
+  padding: none;
+  display: flex;
+  /*
+  tem outra propeidade chamada de flex-direction: column;
+  quer organiza os itens display flex em colunas
+  */
+  gap: 0.5rem;
+  justify-content: center;
+}
